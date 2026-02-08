@@ -1,0 +1,17 @@
+# E-Commerce 3 Tier Application
+
+## Tech Stack
+- React
+- Node.js
+- Express
+- MongoDB
+- Docker
+
+## Features
+- Full CRUD operations
+- 3-tier architecture
+- Dockerized services
+- REST API
+
+## How to Run
+docker compose up --build
