@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  frontend:
+    image: nginx
+    ports:
+      - "8083:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+
+  backend:
+    image: node
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: ["node", "server.js"]
+    ports:
+      - "3000:3000"
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
