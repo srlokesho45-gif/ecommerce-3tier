@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Welcome to Dashboard 🎉</h1>
+<button onclick="getProfile()">Get Profile</button>
+<button onclick="logout()">Logout</button>
+
+<p id="data"></p>
+
+<script>
+const API = "http://backend:3000";
+
+async function getProfile() {
+  let token = localStorage.getItem("token");
+
+  let res = await fetch(API + "/profile", {
+    headers: {
+      "Authorization": token
+    }
+  });
+
+  let data = await res.text();
+  document.getElementById("data").innerText = data;
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
